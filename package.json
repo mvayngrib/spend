@@ -1,6 +1,6 @@
 {
   "name": "spender",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Create simple Bitcoin / Testnet transactions for integration testing with the actual network.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jprichardson/spend"
+    "url": "https://github.com/mvayngrib/spender"
   },
   "keywords": [
     "bitcoin",
@@ -25,14 +25,13 @@
     "simple",
     "spend"
   ],
-  "author": "JP Richardson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jprichardson/spend/issues"
+    "url": "https://github.com/mvayngrib/spender/issues"
   },
-  "homepage": "https://github.com/jprichardson/spend",
+  "homepage": "https://github.com/mvayngrib/spender",
   "dependencies": {
     "bitcoinjs-lib": "^1.4.1",
-    "dezalgo": "^1.0.2"
+    "dezalgo": "^1.0.3"
   }
 }
