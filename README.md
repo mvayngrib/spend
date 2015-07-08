@@ -25,15 +25,14 @@ Here's a list: https://github.com/common-blockchain/common-blockchain/issues/21
 ```js
 var Blockchain = require('cb-blockr')
 var Spender = require('spender')
-new Spender('testnet')   // network name ('bitcoin' or 'testnet')
+new Spender('testnet')      // network name ('bitcoin' or 'testnet')
   .blockchain(new Blockchain('testnet')) // common-blockchain provider
-  .from(privateWif)      // string or bitcoinjs-lib's ECKey
-  .to(toAddress)         // string or bitcoinjs-lib's Address
-  .satoshis(amount)      // int satoshis
-  .fee(fee)              // int satoshis
-  .change(changeAddress) // optional
-  .data(data)            // optional (OP_RETURN)
-  .execute(callback)     // calls back with (err, Transaction, utxosUsed)
+  .from(privateWif)         // string or bitcoinjs-lib's ECKey
+  .to(toAddress, satoshis)  // string or bitcoinjs-lib's Address, int satoshis
+  .fee(fee)                 // int satoshis
+  .change(changeAddress)    // optional
+  .data(data)               // optional (OP_RETURN)
+  .execute(callback)        // calls back with (err, Transaction, utxosUsed)
 ```
 
 ### Limitations
