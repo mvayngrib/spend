@@ -1,6 +1,6 @@
 {
   "name": "spender",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create simple Bitcoin / Testnet transactions for integration testing with the actual network.",
   "main": "index.js",
   "scripts": {
