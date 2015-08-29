@@ -1,9 +1,20 @@
 var assert = require('assert')
 // var Blockchain = require('cb-insight')
+var btcToSatoshis = require('../toSatoshis')
 var fixtures = require('./fixtures')
 var Spender = require('../')
 
 /* global describe, it */
+
+describe('btcToSatoshis', function () {
+  it('should btcToSatoshis satoshi values', function (done) {
+    assert.equal(btcToSatoshis('0.10'), 10000000)
+    assert.equal(btcToSatoshis('0.00979453'), 979453)
+    assert.equal(btcToSatoshis('12.100381'), 1210038100)
+    assert.equal(btcToSatoshis('12'), 1200000000)
+    done()
+  })
+})
 
 describe('spend', function () {
   it('should create and submit Bitcoin testnet transaction', function (done) {

@@ -1,10 +1,13 @@
 var assert = require('assert')
 var dezalgo = require('dezalgo')
 var bitcoin = require('bitcoinjs-lib')
+var toSatoshis = require('./toSatoshis')
 var noop = function() {}
 
 // fixed for now
 var FEE = 10000 // 100 bits
+
+module.exports = Spender
 
 function Spender (network) {
   if (!(this instanceof Spender)) return new Spender()
@@ -84,10 +87,9 @@ Spender.prototype.build = function(cb) {
     if (err) return cb(err)
 
     utxos.forEach(function(u) {
-      u.value = Number(u.value)
-      if (parseInt(u.value) !== u.value) {
+      if (typeof u.value === 'string') {
         // cb-blockr, i'm looking for you
-        u.value = u.value * 1e8
+        u.value = toSatoshis(u.value)
       }
     })
 
@@ -164,5 +166,3 @@ Spender.prototype._spend = function (cb) {
     cb(err, self.tx, self.usedUnspents)
   })
 }
-
-module.exports = Spender
