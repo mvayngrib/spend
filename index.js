@@ -1,6 +1,6 @@
 var assert = require('assert')
 var dezalgo = require('dezalgo')
-var bitcoin = require('bitcoinjs-lib')
+var bitcoin = require('@tradle/bitcoinjs-lib')
 var toSatoshis = require('./toSatoshis')
 var noop = function() {}
 

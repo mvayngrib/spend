@@ -1,5 +1,5 @@
 {
-  "name": "spender",
+  "name": "@tradle/spender",
   "version": "1.0.3",
   "description": "Create simple Bitcoin / Testnet transactions for integration testing with the actual network.",
   "main": "index.js",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/mvayngrib/spender",
   "dependencies": {
-    "bitcoinjs-lib": "^1.4.1",
+    "@tradle/bitcoinjs-lib": "^1.5.7",
     "dezalgo": "^1.0.3"
   },
   "devDependencies": {
