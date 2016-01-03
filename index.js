@@ -6,6 +6,7 @@ var noop = function() {}
 
 // fixed for now
 var FEE = 10000 // 100 bits
+var MIN_CONFIRMATIONS = 1
 
 module.exports = Spender
 
@@ -85,6 +86,11 @@ Spender.prototype.build = function(cb) {
 
   this.chain.addresses.unspents(myAddr, function (err, utxos) {
     if (err) return cb(err)
+
+    utxos = utxos.filter(function (u) {
+      // otherwise tx will fail
+      return (u.confirmations || 0) >= MIN_CONFIRMATIONS
+    })
 
     utxos.forEach(function(u) {
       if (typeof u.value === 'string') {

@@ -11,19 +11,22 @@
           "txId": "537d36911cf463e9a3a3075f017aeefe777d996339ffe2fc99b57868d438c90d",
           "address": "n4SEVY8Hn2SsNTqq9rshXRDwpt1HVwku2J",
           "value": 26763225,
-          "vout": 1
+          "vout": 1,
+          "confirmations": 1
         },
         {
           "txId": "cb129f7fc9e50c79043fba244cb0cc680bd85f8b6fb62d87f4ce1b51d94fbd2e",
           "address": "n4SEVY8Hn2SsNTqq9rshXRDwpt1HVwku2J",
           "value": 4000000,
-          "vout": 0
+          "vout": 0,
+          "confirmations": 2
         },
         {
           "txId": "00d748072ae991003a4ce5253f990b5094a683cf61376375cd45d440ae26acd2",
           "address": "n4SEVY8Hn2SsNTqq9rshXRDwpt1HVwku2J",
           "value": 1000000,
-          "vout": 0
+          "vout": 0,
+          "confirmations": 1000
         }
       ],
       "tx": "01000000010dc938d46878b599fce2ff3963997d77feee7a015f07a3a3e963f41c91367d53010000006b483045022100cd67a3e5436aedcedd29b9103a8a8b8b91b91f932a9a7d816783479eeb2840730220034de75454b5c9ac565c32213d1f9e2c820365aea194d438b7aa5efdd9b0cc89012102302840d96283b24410ee01597573f505d8ad394ccb1485961fdb94fc4c4b2f50ffffffff03204e0000000000001976a914b154fd8b0e2c159007de8f429674b937578b350088aca9ea9701000000001976a914fb6655a99e4dd95a0407de6ad1d22e86c2a7300a88ac00000000000000000d6a0b626967207370656e64657200000000",
