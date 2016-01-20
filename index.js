@@ -102,7 +102,7 @@ Spender.prototype.build = function(cb) {
     var needed = amount + fee
     var collected = 0
     utxos = utxos.sort(function(a, b) {
-        return b.value - a.value
+        return a.value - b.value
       })
       .filter(function(u) {
         if (collected < needed) {
