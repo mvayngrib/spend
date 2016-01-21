@@ -101,9 +101,7 @@ Spender.prototype.build = function(cb) {
 
     var needed = amount + fee
     var collected = 0
-    utxos = utxos.sort(function(a, b) {
-        return a.value - b.value
-      })
+    utxos = shuffle(utxos)
       .filter(function(u) {
         if (collected < needed) {
           collected += u.value
@@ -171,4 +169,25 @@ Spender.prototype._spend = function (cb) {
   this.chain.transactions.propagate(this.tx.toHex(), function (err) {
     cb(err, self.tx, self.usedUnspents)
   })
+}
+
+// fisher-yates
+// http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle (array) {
+  var currentIndex = array.length, temporaryValue, randomIndex
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
+
+  return array
 }

@@ -50,7 +50,12 @@ describe('spend', function () {
   })
 
   it('it shouldn\'t attempt to spend utxos with no confirmations', function (done) {
-    var f0 = fixtures.valid[0]
+    var f0 = extend(fixtures.valid[0])
+    f0.utxos = f0.utxos.map(function (u, i) {
+      u = extend(u)
+      if (i !== 0) u.confirmations = 0
+      return u
+    })
 
     // stub this out
     new Spender('testnet')
