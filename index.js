@@ -8,8 +8,6 @@ var noop = function() {}
 var FEE = 10000 // 100 bits
 var MIN_CONFIRMATIONS = 1
 
-module.exports = Spender
-
 function Spender (network) {
   if (!(this instanceof Spender)) return new Spender()
 
@@ -17,6 +15,9 @@ function Spender (network) {
   assert(this.network, 'specify "network"')
   this.sends = []
 }
+
+module.exports = Spender
+Spender.SPLIT_CHANGE = true
 
 Spender.prototype.from = function (key) {
   assert(key, 'specify "key"')
@@ -120,7 +121,13 @@ Spender.prototype.build = function(cb) {
     })
 
     if (change > 0) {
-      tx.addOutput(changeAddress, change)
+      // hack for now to split change
+      if (Spender.SPLIT_CHANGE && changeAddress === myAddr && sends.length === 1 && change > 200000) {
+        tx.addOutput(changeAddress, change / 2 | 0)
+        tx.addOutput(changeAddress, change / 2 | 0)
+      } else {
+        tx.addOutput(changeAddress, change)
+      }
     }
 
     if (data) {
