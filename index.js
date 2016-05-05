@@ -160,7 +160,7 @@ Spender.prototype.execute = function (cb) {
   }
 
   this._spending = true
-  if (this.tx) return this._spend()
+  if (this.tx) return this._spend(cb)
 
   if (this._building) throw new Error('still building')
 
@@ -173,6 +173,8 @@ Spender.prototype.execute = function (cb) {
 
 Spender.prototype._spend = function (cb) {
   var self = this
+
+  cb = cb || noop
   this.chain.transactions.propagate(this.tx.toHex(), function (err) {
     cb(err, self.tx, self.usedUnspents)
   })
